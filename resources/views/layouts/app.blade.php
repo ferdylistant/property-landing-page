@@ -32,6 +32,8 @@
     const bg = document.getElementById('parallax-bg');
     const navbarMenuLinks = document.querySelectorAll('#navbar ul li a'); // ambil semua link menu
     const navbarLogo = document.querySelector('#navbar h1'); // logo
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
 
     // Inisialisasi AOS
     AOS.init({
@@ -40,37 +42,43 @@
     });
 
     window.addEventListener('scroll', () => {
-        // Navbar effect
-        if (window.scrollY > 50) {
-            // background putih + blur + shadow
-            navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow');
-            navbar.classList.remove('bg-transparent');
+        if (menu.classList.contains("hidden")) {
+            // Navbar effect
+            if (window.scrollY > 50) {
+                // background putih + blur + shadow
+                navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow');
+                navbar.classList.remove('bg-transparent');
 
-            // teks menu dan logo jadi gray
-            navbarMenuLinks.forEach(link => {
-                link.classList.remove('text-white', 'hover:text-green-400');
-                link.classList.add('text-gray-700', 'hover:text-green-400');
-            });
-            navbarLogo.classList.remove('text-white');
-            navbarLogo.classList.add('text-gray-800');
+                // teks menu dan logo jadi gray
+                navbarMenuLinks.forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-green-400');
+                    link.classList.add('text-gray-700', 'hover:text-green-400');
+                });
+                navbarLogo.classList.remove('text-white');
+                navbarLogo.classList.add('text-gray-800');
+                toggle.classList.remove('text-white');
+                toggle.classList.add('text-gray-800');
 
-        } else {
-            // kembali ke transparent
-            navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow');
-            navbar.classList.add('bg-transparent');
+            } else {
+                // kembali ke transparent
+                navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow');
+                navbar.classList.add('bg-transparent');
 
-            // teks menu dan logo putih
-            navbarMenuLinks.forEach(link => {
-                link.classList.remove('text-gray-700', 'hover:text-green-500');
-                link.classList.add('text-white', 'hover:text-green-400');
-            });
-            navbarLogo.classList.remove('text-gray-800');
-            navbarLogo.classList.add('text-white');
+                // teks menu dan logo putih
+                navbarMenuLinks.forEach(link => {
+                    link.classList.remove('text-gray-700', 'hover:text-green-500');
+                    link.classList.add('text-white', 'hover:text-green-400');
+                });
+                navbarLogo.classList.remove('text-gray-800');
+                navbarLogo.classList.add('text-white');
+                toggle.classList.remove('text-gray-800');
+                toggle.classList.add('text-white');
+            }
+
+            // Parallax effect
+            let offset = window.scrollY * 0.6; // semakin kecil => lebih halus
+            bg.style.transform = `translateY(${offset}px)`;
         }
-
-        // Parallax effect
-        let offset = window.scrollY * 0.6; // semakin kecil => lebih halus
-        bg.style.transform = `translateY(${offset}px)`;
     });
 </script>
 
