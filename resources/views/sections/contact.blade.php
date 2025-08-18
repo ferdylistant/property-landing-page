@@ -22,6 +22,7 @@
         <!-- Custom SVG Illustration -->
         <div class="flex justify-center md:justify-end">
 
+            <!-- Siang -->
             <svg id="villa-day" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"
                 class="w-80 md:w-96 drop-shadow-2xl hidden">
                 <!-- Matahari -->
@@ -45,7 +46,8 @@
                 <!-- Ground -->
                 <rect x="0" y="230" width="400" height="20" fill="#34d399" />
             </svg>
-            {{-- Night --}}
+
+            <!-- Malam -->
             <svg id="villa-night" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"
                 class="w-80 md:w-96 drop-shadow-2xl hidden">
                 <!-- Bulan -->
@@ -55,11 +57,11 @@
                 <circle cx="280" cy="40" r="3" fill="#F9FAFB" />
                 <circle cx="300" cy="90" r="2" fill="#F9FAFB" />
                 <circle cx="350" cy="70" r="4" fill="#F9FAFB" />
-                <!-- Palm tree (lebih gelap) -->
+                <!-- Palm tree -->
                 <rect x="75" y="130" width="12" height="100" fill="#4B5563" />
                 <path d="M76 120 C60 110, 50 100, 70 90 C90 100, 110 110, 76 120Z" fill="#1F2937" />
                 <path d="M76 115 C90 100, 120 95, 115 115 C100 125, 85 130, 76 115Z" fill="#374151" />
-                <!-- Villa body (gelap) -->
+                <!-- Villa body -->
                 <rect x="130" y="140" width="140" height="90" fill="#1F2937" stroke="#374151" stroke-width="2"
                     rx="6" />
                 <!-- Roof -->
@@ -89,12 +91,30 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const hour = new Date().getHours();
+        const section = document.getElementById("contact");
+        const btn = document.getElementById("contact-btn");
+        const title = document.getElementById("contact-title");
+        const text = document.getElementById("contact-text");
+        const wave = document.getElementById("contact-wave");
+
         if (hour >= 6 && hour < 18) {
-            // Siang
+            // 🌞 Siang
             document.getElementById("villa-day").classList.remove("hidden");
+            section.classList.add("bg-gradient-to-b", "from-sky-200", "to-white", "text-gray-800");
+
+            title.classList.add("text-gray-900");
+            text.classList.add("text-gray-700");
+            btn.classList.add("bg-green-600", "text-white", "hover:bg-green-700");
+            wave.setAttribute("fill", "#111827");
         } else {
-            // Malam
+            // 🌙 Malam
             document.getElementById("villa-night").classList.remove("hidden");
+            section.classList.add("bg-gradient-to-b", "from-indigo-900", "to-gray-900", "text-white");
+
+            title.classList.add("text-white");
+            text.classList.add("text-gray-300");
+            btn.classList.add("bg-yellow-400", "text-gray-900", "hover:bg-yellow-300");
+            wave.setAttribute("fill", "#000000");
         }
     });
 </script>
