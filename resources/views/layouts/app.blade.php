@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -48,8 +48,8 @@
 
             // teks menu dan logo jadi gray
             navbarMenuLinks.forEach(link => {
-                link.classList.remove('text-white', 'hover:text-blue-400');
-                link.classList.add('text-gray-700', 'hover:text-blue-400');
+                link.classList.remove('text-white', 'hover:text-green-400');
+                link.classList.add('text-gray-700', 'hover:text-green-400');
             });
             navbarLogo.classList.remove('text-white');
             navbarLogo.classList.add('text-gray-800');
@@ -61,15 +61,15 @@
 
             // teks menu dan logo putih
             navbarMenuLinks.forEach(link => {
-                link.classList.remove('text-gray-700', 'hover:text-blue-500');
-                link.classList.add('text-white', 'hover:text-blue-400');
+                link.classList.remove('text-gray-700', 'hover:text-green-500');
+                link.classList.add('text-white', 'hover:text-green-400');
             });
             navbarLogo.classList.remove('text-gray-800');
             navbarLogo.classList.add('text-white');
         }
 
         // Parallax effect
-        let offset = window.scrollY * 0.4; // semakin kecil => lebih halus
+        let offset = window.scrollY * 0.6; // semakin kecil => lebih halus
         bg.style.transform = `translateY(${offset}px)`;
     });
 </script>

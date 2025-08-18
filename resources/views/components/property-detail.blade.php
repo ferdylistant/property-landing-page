@@ -5,9 +5,9 @@
         class="rounded-xl shadow-lg w-full h-96 object-cover">
 
     <div>
-        <h1 class="text-4xl font-bold text-blue-600 mb-4">{{ $title }}</h1>
+        <h1 class="text-4xl font-bold text-green-600 mb-4">{{ $title }}</h1>
         <p class="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-1">
-            <x-heroicon-o-currency-dollar class="w-6 h-6 text-blue-600" /> {{ $price }}
+            <x-heroicon-o-currency-dollar class="w-6 h-6 text-green-600" /> {{ $price }}
         </p>
         <p class="text-gray-600 mb-6">{{ $description }}</p>
 
@@ -22,7 +22,7 @@
         </ul>
 
         <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20{{ urlencode($title) }}"
-            class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 inline-flex items-center gap-2">
+            class="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700 inline-flex items-center gap-2">
             <x-heroicon-o-chat-bubble-oval-left-ellipsis class="w-5 h-5" /> Hubungi via WhatsApp
         </a>
     </div>

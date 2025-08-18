@@ -1,7 +1,7 @@
 <section id="properties" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12 flex items-center justify-center gap-2">
-            <x-heroicon-o-building-office-2 class="w-7 h-7 text-blue-600" /> Properti Unggulan
+            <x-heroicon-o-building-office-2 class="w-7 h-7 text-green-600" /> Properti Unggulan
         </h2>
         <div class="grid md:grid-cols-3 gap-8">
             <x-property-card title="Villa Puncak Indah" price="Rp 2.000.000/malam"
