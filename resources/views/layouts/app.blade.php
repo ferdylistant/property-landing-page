@@ -10,6 +10,41 @@
 
     @vite('resources/css/app.css')
     <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <style>
+        #navbar {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #navbar h1 {
+            transition: color 0.3s ease;
+        }
+
+        #navbar ul li a {
+            transition: color 0.3s ease;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease;
+        }
+
+        #mobile-menu.show {
+            transform: translateX(0);
+        }
+
+        #mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+
+        #villa-day,
+        #villa-night {
+            transition: opacity 1s ease;
+        }
+
+        #villa-day.hidden,
+        #villa-night.hidden {
+            opacity: 0;
+        }
+    </style>
     @stack('head') {{-- kalau ada script/style tambahan --}}
 
 </head>
@@ -42,6 +77,8 @@
     });
 
     window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+        bg.style.opacity = 1 - (scrollPos / 1000);
         if (menu.classList.contains("hidden")) {
             // Navbar effect
             if (window.scrollY > 50) {
@@ -51,8 +88,8 @@
 
                 // teks menu dan logo jadi gray
                 navbarMenuLinks.forEach(link => {
-                    link.classList.remove('text-white', 'hover:text-green-400');
-                    link.classList.add('text-gray-700', 'hover:text-green-400');
+                    link.classList.remove('text-white', 'hover:text-emerald-400');
+                    link.classList.add('text-gray-700', 'hover:text-emerald-400');
                 });
                 navbarLogo.classList.remove('text-white');
                 navbarLogo.classList.add('text-gray-800');
@@ -66,8 +103,8 @@
 
                 // teks menu dan logo putih
                 navbarMenuLinks.forEach(link => {
-                    link.classList.remove('text-gray-700', 'hover:text-green-500');
-                    link.classList.add('text-white', 'hover:text-green-400');
+                    link.classList.remove('text-gray-700', 'hover:text-emerald-500');
+                    link.classList.add('text-white', 'hover:text-emerald-400');
                 });
                 navbarLogo.classList.remove('text-gray-800');
                 navbarLogo.classList.add('text-white');
@@ -76,8 +113,10 @@
             }
 
             // Parallax effect
-            let offset = window.scrollY * 0.6; // semakin kecil => lebih halus
-            bg.style.transform = `translateY(${offset}px)`;
+            let offset = window.scrollY * 0.6;
+            if (window.innerWidth > 768) { // Hanya aktifkan parallax pada desktop
+                bg.style.transform = `translateY(${offset}px)`;
+            }
         }
     });
 </script>

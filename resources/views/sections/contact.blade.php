@@ -1,7 +1,8 @@
-<section id="contact" class="relative py-20 bg-gradient-to-r from-green-600 to-emerald-500 text-white overflow-hidden">
+<section id="contact"
+    class="relative py-20 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white overflow-hidden">
     <!-- Decorative blurred shapes -->
     <div class="absolute -top-20 -left-20 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-32 -right-24 w-96 h-96 bg-green-900/20 rounded-full blur-2xl"></div>
+    <div class="absolute -bottom-32 -right-24 w-96 h-96 bg-emerald-900/20 rounded-full blur-2xl"></div>
     <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-10 items-center"> <!-- Text content -->
         <div class="text-center md:text-left">
             <h2 id="contact-title"
@@ -78,12 +79,12 @@
 
             title.classList.add("text-gray-900");
             text.classList.add("text-gray-700");
-            btn.classList.add("bg-green-600", "text-white", "hover:bg-green-700");
+            btn.classList.add("bg-emerald-600", "text-white", "hover:bg-emerald-700");
             wave.setAttribute("fill", "#111827");
         } else {
             // 🌙 Malam
             document.getElementById("villa-night").classList.remove("hidden");
-            section.classList.add("bg-gradient-to-b", "from-indigo-900", "to-gray-900", "text-white");
+            section.classList.add("bg-gradient-to-b", "from-sky-900", "to-gray-900", "text-white");
 
             title.classList.add("text-white");
             text.classList.add("text-gray-300");
